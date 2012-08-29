@@ -15,66 +15,6 @@ public class Employee {
     private String firstName;
     private String lastName;
     private String ssn;
-    private boolean metWithHr;
-    private boolean metDeptStaff;
-    private boolean reviewedDeptPolicies;
-    private boolean movedIn;
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    private void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    private void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getSsn() {
-        return ssn;
-    }
-
-    private void setSsn(String ssn) {
-        this.ssn = ssn;
-    }
-
-    public boolean isMetWithHr() {
-        return metWithHr;
-    }
-
-    private void setMetWithHr(boolean metWithHr) {
-        this.metWithHr = metWithHr;
-    }
-
-    public boolean isMetDeptStaff() {
-        return metDeptStaff;
-    }
-
-    private void setMetDeptStaff(boolean metDeptStaff) {
-        this.metDeptStaff = metDeptStaff;
-    }
-
-    public boolean isReviewedDeptPolicies() {
-        return reviewedDeptPolicies;
-    }
-
-    private void setReviewedDeptPolicies(boolean reviewedDeptPolicies) {
-        this.reviewedDeptPolicies = reviewedDeptPolicies;
-    }
-
-    public boolean isMovedIn() {
-        return movedIn;
-    }
-
-    private void setMovedIn(boolean movedIn) {
-        this.movedIn = movedIn;
-    }
 
     public void hireEmployee(String fName, String lName, String sNumber) {
         setFirstName(fName);
@@ -82,59 +22,39 @@ public class Employee {
         setSsn(ssn);
     }
 
-    public void hasCompletedOrientation(boolean metHr, boolean metStaff,
-            boolean reviewedPolicies, boolean hasMovedIn) {
-        setMetWithHr(metHr);
-        setMetDeptStaff(metStaff);
-        setReviewedDeptPolicies(reviewedPolicies);
-        setMovedIn(hasMovedIn);
-    }
-    // Assume this must be performed first
-
-    public void meetWithHrForBenefitAndSalryInfo() {
-        metWithHr = true;
+    public String getFirstName() {
+        return firstName;
     }
 
-    // Assume this is must be performed second
-    public void meetDepartmentStaff() {
-        if (metWithHr) {
-            metDeptStaff = true;
+    public void setFirstName(String firstName) {
+        if (firstName == null || firstName.length() == 0) {
+            System.out.println("Error: Names must have Characters. ");
         } else {
-            throw new IllegalStateException("Sorry, you cannot meet with "
-                    + "department staff until you have met with HR.");
+            this.firstName = firstName;
         }
     }
 
-    // Assume this must be performed third
-    public void reviewDeptPolicies() {
-        if (metWithHr && metDeptStaff) {
-            reviewedDeptPolicies = true;
+    public String getLastName() {
+        return lastName;
+    }
+
+    private void setLastName(String lastName) {
+        if (lastName == null || lastName.length() == 0) {
+            System.out.println("Error: Names must have Characters. ");
         } else {
-            throw new IllegalStateException("Sorry, you cannot review "
-                    + " department policies until you have first met with HR "
-                    + "and then with department staff.");
+            this.lastName = lastName;
         }
     }
 
-    // Assume this must be performed 4th
-    public void moveIntoCubicle() {
-        if (metWithHr && metDeptStaff && reviewedDeptPolicies) {
-            this.movedIn = true;
-        } else {
-            throw new IllegalStateException("Sorry, you cannot move in to a "
-                    + "cubicle until you have first met with HR "
-                    + "and then with department staff, and then reviewed"
-                    + "department policies.");
-        }
-
+    public String getSsn() {
+        return ssn;
     }
 
-    public String getStatus() {
-        if (metWithHr && metDeptStaff
-                && reviewedDeptPolicies && movedIn) {
-            return "Orientation is complete";
+    private void setSsn(String ssn) {
+        if (ssn == null || ssn.length() == 0 || ssn.length() > 10) {
+            System.out.println("Error: SSN must be ten Digits long. ");
         } else {
-            return "Orientation in progress...";
+            this.ssn = ssn;
         }
     }
 }
