@@ -52,7 +52,7 @@ public class Employee {
 
     private void setSsn(String ssn) {
         if (ssn == null || ssn.length() == 0 || ssn.length() > 10) {
-            System.out.println("Error: SSN must be ten Digits long. ");
+            System.out.println("Error: SSN must be ten Digits. ");
         } else {
             this.ssn = ssn;
         }

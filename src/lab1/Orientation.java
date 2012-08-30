@@ -14,58 +14,25 @@ public class Orientation {
     private boolean metDeptStaff;
     private boolean reviewedDeptPolicies;
     private boolean movedIn;
-    
-    public Orientation(){
+
+    public Orientation() {
     }
 
-    public void hasCompletedOrientation(boolean metHr, boolean metStaff,
-            boolean reviewedPolicies, boolean hasMovedIn) {
-        setMetWithHr(metHr);
-        setMetDeptStaff(metStaff);
-        setReviewedDeptPolicies(reviewedPolicies);
-        setMovedIn(hasMovedIn);
-    }
-    
-    
-    public boolean isMetWithHr() {
-        return metWithHr;
-    }
+    public void hireEmployee() {
+        meetWithHrForBenefitAndSalryInfo();
+        meetDepartmentStaff();
+        reviewDeptPolicies();
+        moveIntoCubicle();
 
-    private void setMetWithHr(boolean metWithHr) {
-        this.metWithHr = metWithHr;
-    }
-
-    public boolean isMetDeptStaff() {
-        return metDeptStaff;
-    }
-
-    public void setMetDeptStaff(boolean metDeptStaff) {
-        this.metDeptStaff = metDeptStaff;
-    }
-
-    public boolean isReviewedDeptPolicies() {
-        return reviewedDeptPolicies;
-    }
-
-    public void setReviewedDeptPolicies(boolean reviewedDeptPolicies) {
-        this.reviewedDeptPolicies = reviewedDeptPolicies;
-    }
-
-    public boolean isMovedIn() {
-        return movedIn;
-    }
-
-    public void setMovedIn(boolean movedIn) {
-        this.movedIn = movedIn;
     }
 
     // Assume this must be performed first
-    public void meetWithHrForBenefitAndSalryInfo() {
+    private void meetWithHrForBenefitAndSalryInfo() {
         metWithHr = true;
     }
 
     // Assume this is must be performed second
-    public void meetDepartmentStaff() {
+    private void meetDepartmentStaff() {
         if (metWithHr) {
             metDeptStaff = true;
         } else {
@@ -75,7 +42,7 @@ public class Orientation {
     }
 
     // Assume this must be performed third
-    public void reviewDeptPolicies() {
+    private void reviewDeptPolicies() {
         if (metWithHr && metDeptStaff) {
             reviewedDeptPolicies = true;
         } else {
@@ -86,7 +53,7 @@ public class Orientation {
     }
 
     // Assume this must be performed 4th
-    public void moveIntoCubicle() {
+    private void moveIntoCubicle() {
         if (metWithHr && metDeptStaff && reviewedDeptPolicies) {
             this.movedIn = true;
         } else {
