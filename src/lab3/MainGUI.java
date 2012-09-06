@@ -264,6 +264,7 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
         try {
             partPrice = Double.parseDouble(this.txtNewProdPrice.getText());
         } catch(Exception e) {
+            //Not the Responsibility of this class
             JOptionPane.showMessageDialog(this,
                     "Sorry, the price entry must be a whole or floating point number only.\n",
                     "Number Format Error", JOptionPane.WARNING_MESSAGE);
@@ -271,6 +272,7 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
         }
 
         if (emptyRow > 10) {
+            //Not the Responsibility of this class
             JOptionPane.showMessageDialog(this, 
                     "Sorry, you have reach the maximum of 10 items.\n"
                     + "No more items can be saved.", "Maximum Reached", JOptionPane.WARNING_MESSAGE);
@@ -278,6 +280,7 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
         } else if (partNo.length() == 0 || partDesc.length() == 0 
                 || this.txtNewProdPrice.getText().length() == 0)
         {
+            //Not the Responsibility of this class
             JOptionPane.showMessageDialog(this, 
                     "Sorry, you must complete all fields. Please try again.",
                     "Incomplete Part Entry", JOptionPane.WARNING_MESSAGE);
@@ -304,6 +307,7 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
                 }
             }
            if (foundIndex == NOT_FOUND) {
+               //Not the Responsibility of this class
                 JOptionPane.showMessageDialog(this,
                     "Part Number not found. Please try again.",
                     "Not Found", JOptionPane.WARNING_MESSAGE);
@@ -313,6 +317,7 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
                 txtCurPrice.setText("" + partPrices[foundIndex]);
            }
         } else {
+            //Not the Responsibility of this class
                 JOptionPane.showMessageDialog(this,
                     "Please enter a Part No. to search",
                     "Entry Missing", JOptionPane.WARNING_MESSAGE);
@@ -326,6 +331,7 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         if (foundIndex == NOT_FOUND) {
+            //Not the Responsibility of this class
                 JOptionPane.showMessageDialog(this,
                     "Part Number not found. Please try again.",
                     "Search Failure", JOptionPane.WARNING_MESSAGE);
@@ -334,6 +340,7 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
             partDescs[foundIndex] = txtCurDesc.getText();
             partPrices[foundIndex] = Double.parseDouble(txtCurPrice.getText());
             displayList();
+            //Not the Responsibility of this class
             JOptionPane.showMessageDialog(this,
                 "Part updated successfully!",
                 "Success Confirmation", JOptionPane.INFORMATION_MESSAGE);
