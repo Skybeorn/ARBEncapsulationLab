@@ -1,24 +1,22 @@
 package lab2;
 
 public class Game {
+    
+    private GameBoard gameBoard;
 
-    private boolean wonDuel;
-    private GameWorld gameWorld;
-
-    public Game(boolean wonDuel, GameWorld gameWorld) {
-        this.wonDuel = wonDuel;
-        this.gameWorld = gameWorld;
-    }
+    private Player[] players;
 
     public void startGame() {
+        loadSavedGame();
     }
 
-    public boolean isWonMatch() {
-        return wonDuel;
+    public void loadSavedGame() {
     }
 
-    public void setWonMatch(boolean wonMatch) {
-        this.wonDuel = wonMatch;
+    public void EndGame() {
+        saveGameStatus();
     }
 
+    private void saveGameStatus() {
+    }
 }
